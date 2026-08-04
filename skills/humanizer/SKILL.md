@@ -1,10 +1,12 @@
 ---
 name: humanizer
 description: >
-  Rewrites AI-generated text to remove robotic patterns and make it sound genuinely human.
+  Rewrites AI-generated text to remove robotic patterns and make it sound genuinely human,
+  or detects AI-slop patterns without rewriting.
   ALWAYS activate this skill when the user types /humanizer followed by any text.
   Handles both Italian and English content.
-  Produces a before/after comparison with annotations explaining what was changed and why.
+  Produces a before/after comparison with annotations explaining what was changed and why,
+  or a pattern-by-pattern detection report when asked to audit rather than rewrite.
 ---
 
 # Humanizer
@@ -13,7 +15,18 @@ Removes AI writing tics and rewrites the text so it reads like it was written by
 
 ## When to activate
 
-Trigger exclusively on the `/humanizer` command. The text to rewrite follows the command on the same message.
+Trigger exclusively on the `/humanizer` command. The text to rewrite (or audit) follows the command on the same message.
+
+## Two modes
+
+**Rewrite (default).** The user pastes text after `/humanizer`. Apply the full pattern analysis, rewrite, and self-check below, then return the before/after comparison.
+
+**Detect.** The user asks something like `/humanizer detect`, `/humanizer is this AI slop?`, or explicitly asks to audit, scan, or flag without rewriting. In this mode:
+- Do not rewrite the text.
+- List every pattern found, each with the quoted line and the category name from this document.
+- Give the fix in a few words, not a full rewrite.
+- Do not score the text or claim to know whether an AI wrote it — named patterns are checkable evidence, AI-detection is a guess. Say so if asked.
+- Offer to switch to Rewrite mode after.
 
 ---
 
@@ -172,47 +185,72 @@ Fixed: "I nostri prodotti..."
 ### 8. Structural tics
 - Three-item lists as default structure for everything (the "rule of three" compulsion)
 - Overuse of bullet points where prose would flow better
-- Em-dashes everywhere (— used as a crutch instead of varied punctuation)
+- Em-dashes used as a default rhythm crutch. In short copy (under ~150 words), use none. In longer text, 1-2 are fine only when they clearly beat a comma, period, or parentheses. Remove clusters and decorative dashes — if you can't say why a dash is there instead of a period, cut it.
 - Parenthetical asides that add nothing: (e cosa ancora più importante), (and this is key)
 - All paragraphs the same length — vary short and long
+- Emoji in headings, bold sprinkled mid-sentence for emphasis, and headers over two-sentence sections — formatting should follow the content, not decorate it
 
 ---
 
-### 9. Vague attribution and hedging
+### 9. Colon reveals
+
+A noun phrase, a colon, then a lowercase dramatic reveal used for fake drama instead of a real list, label, or quote.
+
+- "The detail that makes it work: a separate agent grades it."
+- "Il vero vantaggio: risparmi tre ore a settimana."
+- "The best part: it learns."
+
+**The fix:** rewrite as a plain sentence. "A separate agent grades it, which is what makes it work." Keep colons for actual lists, labels, and quotes, not staged reveals. Prefer lowercase after the colon unless grammar, a proper noun, a title, or code requires a capital.
+
+---
+
+### 10. Fake-profound kickers
+
+A final "deep" line that turns the point into a cute metaphor, aphorism, or mic-drop sentence.
+
+- "And that's the real lesson here."
+- "Alla fine, tutto si riduce a questo."
+- "That's it. That's the whole thing."
+
+**The fix:** delete the kicker. Don't rewrite it into a better metaphor or preserve its rhythm — cut it and end on the clearest concrete sentence already in the text. If the ending genuinely needs closure, add a plain takeaway or next action instead.
+
+---
+
+### 11. Vague attribution and hedging
 - "Gli esperti dicono che", "Secondo molti studiosi", "La ricerca mostra che"
 - "Experts agree that", "Studies show", "Research suggests" — without citations
 - "È risaputo che", "Come tutti sappiamo", "It's well known that"
 
 ---
 
-### 10. Empty intensifiers
+### 12. Empty intensifiers
 - "davvero", "veramente", "assolutamente", "fondamentalmente" used as filler
 - "truly", "really", "essentially", "basically", "literally" as padding
 - "non solo... ma anche" constructions used repeatedly
 
 ---
 
-### 11. Synthetic empathy
+### 13. Synthetic empathy
 - "Capisco le tue preoccupazioni", "So che può sembrare difficile"
 - "I understand this may be challenging", "That's a great question"
 - Emotional validation inserted without context
 
 ---
 
-### 12. Corporate/LinkedIn voice
+### 14. Corporate/LinkedIn voice
 - "Leverage synergies", "move the needle", "at scale", "ecosystem"
 - "creare valore", "scalare", "ecosystem", "stakeholder", "impatto"
 - Nouns that should be verbs: "learnings", "asks", "solutions"
 
 ---
 
-### 13. Fake specificity
+### 15. Fake specificity
 - "Ci sono 5 modi per...", "Ecco 7 ragioni per cui..." (numbered lists as clickbait)
 - "Here are 3 reasons why...", "5 steps to..." with no real reason for that number
 
 ---
 
-### 14. Passive AI humility
+### 16. Passive AI humility
 - "Come modello linguistico", "Non ho accesso a..."
 - "As an AI", "I should note that" — self-referential hedging that sneaks into ghostwritten content
 
@@ -231,6 +269,22 @@ Fixed: "I nostri prodotti..."
 - Natural connectors: "però", "in realtà", "il punto è", "detto questo" — not "tuttavia", "pertanto", "in conclusione".
 
 ---
+
+## Self-check before output
+
+Before returning a rewrite, check it against this list. Answer each with pass or fail; if anything fails, fix the draft and check again before producing the final output.
+
+1. Does the rewrite preserve the original meaning, claims, and tone without inventing details?
+2. Is every banned word or phrase from the vocabulary reference and pattern list gone, unless quoted as an example of what was removed?
+3. Are negative parallelism, reframe constructions, and serial negation eliminated — no "not X, it's Y"?
+4. Are decorative metaphors and corporate/LinkedIn voice replaced with literal claims?
+5. Are colon reveals rewritten as plain sentences and fake-profound kickers deleted rather than rewritten into a new metaphor?
+6. Is sentence rhythm varied — no robotic three-item lists, no identical paragraph lengths, no stacked punchy fragments?
+7. Are em dashes used sparingly per the rule in Structural tics, with no decorative clusters?
+8. Does the register match the source (formal stays formal, casual stays casual) without over-professionalizing?
+9. Would a sharp human reader recognize this as natural writing, not a cleaned-up AI draft?
+
+For Detect mode, check instead: does the response name each pattern with a quoted line and a short fix, without rewriting, scoring, or claiming to know whether AI wrote it?
 
 ## Output format
 
