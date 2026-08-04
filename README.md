@@ -16,6 +16,16 @@ The skill produces:
 - **Patterns removed** — annotated list of what was found and changed
 - **Rewritten text** — clean, ready-to-use version
 
+### Detect mode
+
+Audit text for AI writing patterns without rewriting it:
+
+```
+/humanizer detect <your text here>
+```
+
+Lists every pattern found (quoted line + category + short fix) instead of producing a full rewrite.
+
 ## Installation
 
 Copy `skills/humanizer/SKILL.md` into your Claude Code skills directory:
