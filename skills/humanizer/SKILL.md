@@ -140,6 +140,8 @@ Replace inflated verb phrases with plain verbs:
 | aims to | wants to / will |
 | seeks to | tries to |
 
+**Nominalizzazioni**: converti nome-invece-di-verbo nel verbo diretto. "made a decision" → "decided", "has the ability to" → "can", "ha preso la decisione di" → "ha deciso", "ha la capacità di" → "può".
+
 ---
 
 ### 6. Decorative metaphors
@@ -308,6 +310,54 @@ Frase che apre con "Cosa/Come/Perché..." come struttura formulaica invece di di
 
 ---
 
+### 22. Setup da falso insight
+
+Un'introduzione che si autoproclama la rivelazione che quasi nessuno coglie, per mettersi in scena come unico esperto, prima ancora di dire la cosa.
+
+- "Questa è la parte che quasi tutti saltano", "Ecco cosa nessuno ti dice", "La parte che tutti si perdono"
+- "This is the part most people skip", "What most people get wrong", "Here's what nobody tells you"
+- Fix: elimina il setup, lascia che la claim stia in piedi da sola. "The part everyone misses: distribution is the real moat" → "Distribution is the moat."
+
+---
+
+### 23. Frasi in -ing superficiali
+
+Una coda in -ing (o un gerundio) attaccata alla fine di una frase che finge di spiegarne il significato senza aggiungere fatti.
+
+- "evidenziando...", "sottolineando...", "riflettendo...", "mostrando..."
+- "highlighting...", "underscoring...", "reflecting...", "showcasing..."
+- Fix: cancella la coda o espandila con la fonte reale. "Il lancio aggiunge la ricerca nei file, evidenziando l'impegno del team per un workflow migliore" → "Il lancio aggiunge la ricerca nei file, così gli utenti trovano vecchie bozze senza uscire dall'editor."
+
+---
+
+### 24. Sinonimi a rotazione
+
+Termini diversi per la stessa cosa nello stesso paragrafo, alternati per varietà stilistica invece che per chiarezza: "protagonista, personaggio principale, figura centrale, eroe" tutti in tre frasi.
+
+- "Protagonist, main character, central figure, hero" all in one paragraph
+- Fix: scegli una parola e ripetila.
+
+---
+
+### 25. Metadiscorso interpretativo
+
+Righe che escono dal contenuto per dire al lettore cosa notare o quanto peso dargli, invece di lasciare che siano i fatti a farlo.
+
+- "Questo dettaglio conta più di quanto sembri", "Il punto chiave è", "Come puoi vedere", "In altre parole" ridondante
+- "That last part matters more than it sounds," "The key point is," "As you can see," redundant "In other words"
+- Fix: se il punto è già chiaro nel testo, cancella l'inciso. Altrimenti sostituiscilo con un fatto o un esempio che manca ancora.
+
+---
+
+### 26. Finali riassuntivi
+
+Un "In conclusione", "In definitiva", "Nel complesso", o un paragrafo finale che ripete quanto appena detto.
+
+- "In conclusion," "Ultimately," "Overall," a final paragraph that restates the piece
+- Fix: il lettore c'era già. Termina sull'ultimo punto concreto, sulla conclusione pratica, o sul prossimo passo.
+
+---
+
 ## Rewriting principles
 
 **Preserve**: core meaning, factual claims, the author's intended tone (formal/casual/technical), specific terminology that belongs to the domain.
@@ -338,7 +388,8 @@ Before returning a rewrite, check it against this list. Answer each with pass or
 9. Would a sharp human reader recognize this as natural writing, not a cleaned-up AI draft?
 10. Le frasi vaghe/sensazione sono state sostituite con meccanismo o numero concreto (vedi §17)?
 11. Nessun soggetto inanimato compie azioni umane, nessuna voce da narratore a distanza, nessuna apertura con parola interrogativa, nessun assoluto vago senza dati dietro (§18-21)?
-12. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
+12. Nessun setup da falso insight, coda in -ing superficiale, sinonimo a rotazione, metadiscorso interpretativo, o finale riassuntivo (§22-26)?
+13. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
 
 For Detect mode, check instead: does the response name each pattern with a quoted line and a short fix, without rewriting, scoring, or claiming to know whether AI wrote it?
 
