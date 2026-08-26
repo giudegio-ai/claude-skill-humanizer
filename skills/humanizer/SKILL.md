@@ -164,6 +164,19 @@ Replace with literal verbs: cut, added, removed, changed, joined, caused, showed
 - gardening metaphors for organizations
 - battlefield metaphors for work
 
+**Sostantivi-metafora astratti** (sostituzione diretta):
+
+| Banned | Use instead |
+|--------|-------------|
+| substrate | base |
+| vector | modo / metodo |
+| wedge in | aggiungi |
+| primitive (come sostantivo) | elemento base |
+| gold-plating | più di quanto serva |
+| ratchet (metafora) | il nome reale del meccanismo, o "limite che si stringe solo" |
+| evacuate (per codice) | sposta fuori |
+| endgame | fase finale |
+
 **The fix:** if the metaphor is decorative, delete it and write the literal claim.
 
 Bad: "The dashboard is a decision filter."
@@ -185,10 +198,12 @@ Fixed: "I nostri prodotti..."
 ### 8. Structural tics
 - Three-item lists as default structure for everything (the "rule of three" compulsion)
 - Overuse of bullet points where prose would flow better
-- Em-dashes used as a default rhythm crutch. In short copy (under ~150 words), use none. In longer text, 1-2 are fine only when they clearly beat a comma, period, or parentheses. Remove clusters and decorative dashes — if you can't say why a dash is there instead of a period, cut it.
+- Em-dashes: avoid entirely. Use periods or commas, never parentheses or en dashes as a substitute. Swapping the em-dash for parentheses just trades one AI tell for another. If a thought needs separation, end the sentence or use a comma.
 - Parenthetical asides that add nothing: (e cosa ancora più importante), (and this is key)
 - All paragraphs the same length — vary short and long
 - Emoji in headings, bold sprinkled mid-sentence for emphasis, and headers over two-sentence sections — formatting should follow the content, not decorate it
+- Liste con etichetta in grassetto seguita da due punti che ripetono la frase: "**Performance:** le performance sono migliorate...". Converti in prosa. Un lead-in in grassetto che finisce con un punto, nomina l'elemento, ed è seguito da dettaglio nuovo ("Schema in TypeScript. Le tabelle vivono in un file.") va bene, non è un tell.
+- Virgolette curve/tipografiche (" " ' ') → sostituisci con virgolette dritte (" ')
 
 ---
 
@@ -256,12 +271,19 @@ A final "deep" line that turns the point into a cute metaphor, aphorism, or mic-
 
 ---
 
+### 17. Vibe claims instead of mechanism
+- "il database è sempre a portata di mano", "SQL leggibile", "tipi che seguono lo schema" — nominano una sensazione, non un fatto
+- Fix: nomina il meccanismo o il numero. "`.toSQL()` restituisce la stringa esatta inviata al database", "rinominare una colonna rompe la build"
+
+---
+
 ## Rewriting principles
 
 **Preserve**: core meaning, factual claims, the author's intended tone (formal/casual/technical), specific terminology that belongs to the domain.
 
 **Inject**:
 - Varied sentence rhythm: mix short punchy sentences with longer ones. Break the pattern.
+- Voce attiva: individua "is/are/was/were + participio passato" e nomina chi compie l'azione. "le query vengono validate" → "il compilatore valida le query". La passiva va bene solo se l'attore è ignoto o davvero irrilevante.
 - Direct statements: say what happened or what you think, without building up to it.
 - Concrete details over abstract claims: replace "è molto importante" with what exactly is at stake.
 - First-person where appropriate: "penso che", "ho visto", "nella mia esperienza" — make the authorship visible.
@@ -280,9 +302,11 @@ Before returning a rewrite, check it against this list. Answer each with pass or
 4. Are decorative metaphors and corporate/LinkedIn voice replaced with literal claims?
 5. Are colon reveals rewritten as plain sentences and fake-profound kickers deleted rather than rewritten into a new metaphor?
 6. Is sentence rhythm varied — no robotic three-item lists, no identical paragraph lengths, no stacked punchy fragments?
-7. Are em dashes used sparingly per the rule in Structural tics, with no decorative clusters?
+7. Are em dashes absent per the rule in Structural tics, with no parentheses used as a substitute?
 8. Does the register match the source (formal stays formal, casual stays casual) without over-professionalizing?
 9. Would a sharp human reader recognize this as natural writing, not a cleaned-up AI draft?
+10. Le frasi vaghe/sensazione sono state sostituite con meccanismo o numero concreto (vedi §17)?
+11. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
 
 For Detect mode, check instead: does the response name each pattern with a quoted line and a short fix, without rewriting, scoring, or claiming to know whether AI wrote it?
 
