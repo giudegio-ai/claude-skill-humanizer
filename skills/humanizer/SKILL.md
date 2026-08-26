@@ -277,6 +277,37 @@ A final "deep" line that turns the point into a cute metaphor, aphorism, or mic-
 
 ---
 
+### 18. False agency
+- Un soggetto inanimato compie un'azione umana: "il reclamo diventa una correzione", "la decisione emerge", "il problema si risolve da solo"
+- "the complaint becomes a fix", "the decision emerges", "mistakes happen"
+- Fix: nomina la persona che compie l'azione. "Il team trasforma il reclamo in una correzione", "il team decide"
+
+---
+
+### 19. Narratore a distanza
+- Voce da osservatore esterno invece di rivolgersi al lettore: "Nessuno ha progettato questo sistema così", "La gente tende a ignorarlo"
+- "Nobody designed this", "People tend to ignore it"
+- Fix: metti il lettore nella scena. "Tu non hai progettato questo sistema, ma lo usi ogni giorno", "Tendi a ignorarlo" — "tu/you" batte "la gente/people"
+
+---
+
+### 20. Apertura con parola interrogativa
+
+Frase che apre con "Cosa/Come/Perché..." come struttura formulaica invece di dire la cosa direttamente.
+
+- "Quello che rende possibile questo è la cache." / "What makes this work is the cache."
+- "Il motivo per cui succede è la latenza." / "Why this happens is latency."
+- Fix: parti dal soggetto reale. "La cache rende possibile questo." / "The cache makes this work."
+
+---
+
+### 21. Assoluti vaghi
+- "sempre", "mai", "ogni volta" usati per suonare autorevoli senza dati dietro: "Questo approccio funziona sempre", "Non fallisce mai"
+- "always", "never", "every time" as rhetorical weight without evidence
+- Fix: sostituisci con la frequenza reale o cancella l'assoluto. "Ha funzionato nei nostri ultimi 12 test" invece di "funziona sempre"
+
+---
+
 ## Rewriting principles
 
 **Preserve**: core meaning, factual claims, the author's intended tone (formal/casual/technical), specific terminology that belongs to the domain.
@@ -306,7 +337,8 @@ Before returning a rewrite, check it against this list. Answer each with pass or
 8. Does the register match the source (formal stays formal, casual stays casual) without over-professionalizing?
 9. Would a sharp human reader recognize this as natural writing, not a cleaned-up AI draft?
 10. Le frasi vaghe/sensazione sono state sostituite con meccanismo o numero concreto (vedi §17)?
-11. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
+11. Nessun soggetto inanimato compie azioni umane, nessuna voce da narratore a distanza, nessuna apertura con parola interrogativa, nessun assoluto vago senza dati dietro (§18-21)?
+12. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
 
 For Detect mode, check instead: does the response name each pattern with a quoted line and a short fix, without rewriting, scoring, or claiming to know whether AI wrote it?
 
