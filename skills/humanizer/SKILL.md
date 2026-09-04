@@ -209,7 +209,9 @@ Fixed: "I nostri prodotti..."
 
 ---
 
-### 9. Colon reveals
+### 9. Colon misuse
+
+**A. Colon reveals**
 
 A noun phrase, a colon, then a lowercase dramatic reveal used for fake drama instead of a real list, label, or quote.
 
@@ -218,6 +220,15 @@ A noun phrase, a colon, then a lowercase dramatic reveal used for fake drama ins
 - "The best part: it learns."
 
 **The fix:** rewrite as a plain sentence. "A separate agent grades it, which is what makes it work." Keep colons for actual lists, labels, and quotes, not staged reveals. Prefer lowercase after the colon unless grammar, a proper noun, a title, or code requires a capital.
+
+**B. Colon as mid-sentence connector**
+
+Colons used in place of a standalone sentence to bolt a comparison or an explanation onto a setup clause, instead of introducing an actual list, label, or quote. Different from a colon reveal: there's no dramatic payoff here, just a crutch holding two ideas together that should be two sentences.
+
+- "If you're coming from traditional automation: instead of registering event handlers, you describe conditions." → "Describing when the scheduler should fire works best as plain English."
+- "Se vieni dall'automazione tradizionale: invece di registrare event handler, descrivi condizioni." → "Descrivere quando lo scheduler deve attivarsi funziona meglio in linguaggio semplice."
+
+**The fix:** drop the comparison framing and let the point stand on its own, without the colon holding it up. Colons stay valid only before actual lists, examples, and quotes — not as a substitute for ending the sentence.
 
 ---
 
@@ -358,6 +369,27 @@ Un "In conclusione", "In definitiva", "Nel complesso", o un paragrafo finale che
 
 ---
 
+### 27. Filler grammaticale
+
+Costruzioni che aggiungono parole senza aggiungere significato — non intensificatori isolati (vedi §12), ma intere frasi-cuscinetto usate per aprire, giustificare o introdurre un punto invece di dirlo direttamente.
+
+| Banned | Use instead |
+|--------|-------------|
+| "In order to" / "Al fine di" | "To" / "Per" |
+| "Due to the fact that" / "Dato il fatto che" | "Because" / "Perché" |
+| "It is important to note that" / "È importante notare che" | cancella |
+| "In the event that" / "Nel caso in cui" | "If" / "Se" |
+| "With regard to" / "Per quanto riguarda" | "About" / "Su" |
+| "For the purpose of" / "Allo scopo di" | "To" / "Per" |
+
+- "In order to reduce latency, we cached the query." → "To reduce latency, we cached the query."
+- "Due to the fact that the API changed, the client broke." → "Because the API changed, the client broke."
+- "It is important to note that this only applies to production." → "This only applies to production."
+
+**The fix:** sostituisci con la forma breve, o cancella del tutto se la frase non aggiunge informazione che non c'è già.
+
+---
+
 ## Rewriting principles
 
 **Preserve**: core meaning, factual claims, the author's intended tone (formal/casual/technical), specific terminology that belongs to the domain.
@@ -381,7 +413,7 @@ Before returning a rewrite, check it against this list. Answer each with pass or
 2. Is every banned word or phrase from the vocabulary reference and pattern list gone, unless quoted as an example of what was removed?
 3. Are negative parallelism, reframe constructions, and serial negation eliminated — no "not X, it's Y"?
 4. Are decorative metaphors and corporate/LinkedIn voice replaced with literal claims?
-5. Are colon reveals rewritten as plain sentences and fake-profound kickers deleted rather than rewritten into a new metaphor?
+5. Are colon reveals and mid-sentence connector colons rewritten as plain sentences, and fake-profound kickers deleted rather than rewritten into a new metaphor?
 6. Is sentence rhythm varied — no robotic three-item lists, no identical paragraph lengths, no stacked punchy fragments?
 7. Are em dashes absent per the rule in Structural tics, with no parentheses used as a substitute?
 8. Does the register match the source (formal stays formal, casual stays casual) without over-professionalizing?
@@ -389,7 +421,8 @@ Before returning a rewrite, check it against this list. Answer each with pass or
 10. Le frasi vaghe/sensazione sono state sostituite con meccanismo o numero concreto (vedi §17)?
 11. Nessun soggetto inanimato compie azioni umane, nessuna voce da narratore a distanza, nessuna apertura con parola interrogativa, nessun assoluto vago senza dati dietro (§18-21)?
 12. Nessun setup da falso insight, coda in -ing superficiale, sinonimo a rotazione, metadiscorso interpretativo, o finale riassuntivo (§22-26)?
-13. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
+13. Nessun filler grammaticale ("in order to", "due to the fact that", "it is important to note that" e equivalenti) rimasto senza essere accorciato o cancellato (§27)?
+14. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
 
 For Detect mode, check instead: does the response name each pattern with a quoted line and a short fix, without rewriting, scoring, or claiming to know whether AI wrote it?
 

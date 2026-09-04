@@ -2,7 +2,7 @@
 
 A Claude Code skill that finds and removes the tells of AI-generated writing, in Italian and English.
 
-Most "make it sound human" prompts are one line: *"rewrite this so it doesn't sound like AI."* That line does almost nothing, because it gives the model no definition of what to look for. This skill replaces the vague instruction with a concrete taxonomy: **26 named pattern categories**, a 70-term banned vocabulary list, and a 13-point self-check the model runs against its own output before returning it.
+Most "make it sound human" prompts are one line: *"rewrite this so it doesn't sound like AI."* That line does almost nothing, because it gives the model no definition of what to look for. This skill replaces the vague instruction with a concrete taxonomy: **27 named pattern categories**, a 70-term banned vocabulary list, and a 14-point self-check the model runs against its own output before returning it.
 
 ## The problem
 
@@ -23,7 +23,7 @@ The rewrite above removes: a negative-parallelism opener, a reframe construction
 
 ## How it works
 
-**26 named pattern categories**, each with concrete trigger phrases in both languages and a stated fix — not "avoid clichés" but "these specific constructions, replaced this specific way":
+**27 named pattern categories**, each with concrete trigger phrases in both languages and a stated fix — not "avoid clichés" but "these specific constructions, replaced this specific way":
 
 | # | Category | Example tell |
 |---|----------|--------------|
@@ -35,7 +35,7 @@ The rewrite above removes: a negative-parallelism opener, a reframe construction
 | 6 | Decorative metaphors & abstract jargon | "scaffold the strategy" → "organize", "substrate" → "base" |
 | 7 | Chatbot rhetorical questions | "Have you ever wondered...?" |
 | 8 | Structural tics | forced three-item lists, em dashes (zero-tolerance), inline-header lists, curly quotes |
-| 9 | Colon reveals | "The best part: it learns." |
+| 9 | Colon misuse (reveals & mid-sentence connectors) | "The best part: it learns." / "If you're coming from X: instead of A, you do B." |
 | 10 | Fake-profound kickers | "That's it. That's the whole thing." |
 | 11 | Vague attribution & hedging | "Studies show..." (no citation) |
 | 12 | Empty intensifiers | "davvero", "essentially", "basically" |
@@ -53,12 +53,13 @@ The rewrite above removes: a negative-parallelism opener, a reframe construction
 | 24 | Synonym cycling | "protagonist / main character / central figure / hero" in one paragraph |
 | 25 | Interpretive metadiscourse | "The key point is...", "As you can see..." |
 | 26 | Summary-recap endings | "In conclusion,", "Overall," restating what was just said |
+| 27 | Filler grammaticale | "In order to" → "To", "It is important to note that" → deleted |
 
 **A 70-term banned vocabulary list** — delve, harness, tapestry, paradigm, leverage, seamless, robust, and the rest of the words that flag a paragraph as machine-written on sight.
 
-**A self-check loop, not a single pass.** Before returning output, the skill runs its own draft against 13 pass/fail checks (meaning preserved? every banned term gone? reframes eliminated? rhythm varied? register matched? false agency and distant-narrator voice gone? no faux-insight setups or summary-recap endings?) and revises until it passes — the same discipline a careful human editor applies, made explicit instead of implicit. The loop ends with a deliberately blunt self-audit question: *"what makes this obviously AI generated?"* — if anything still answers that, it gets fixed before the draft goes out.
+**A self-check loop, not a single pass.** Before returning output, the skill runs its own draft against 14 pass/fail checks (meaning preserved? every banned term gone? reframes eliminated? rhythm varied? register matched? false agency and distant-narrator voice gone? no faux-insight setups or summary-recap endings? no leftover filler grammar?) and revises until it passes — the same discipline a careful human editor applies, made explicit instead of implicit. The loop ends with a deliberately blunt self-audit question: *"what makes this obviously AI generated?"* — if anything still answers that, it gets fixed before the draft goes out.
 
-**Two modes.** *Rewrite* (default) returns an annotated before/after. *Detect* audits text for the same 26 patterns without touching it — useful for reviewing writing you don't want rewritten, only diagnosed. Detect deliberately doesn't score "AI-ness" as a probability; named patterns are checkable evidence, and the skill treats that distinction as a feature, not a limitation.
+**Two modes.** *Rewrite* (default) returns an annotated before/after. *Detect* audits text for the same 27 patterns without touching it — useful for reviewing writing you don't want rewritten, only diagnosed. Detect deliberately doesn't score "AI-ness" as a probability; named patterns are checkable evidence, and the skill treats that distinction as a feature, not a limitation.
 
 ### Why these specific patterns
 
