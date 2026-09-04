@@ -2,7 +2,7 @@
 
 A Claude Code skill that finds and removes the tells of AI-generated writing, in Italian and English.
 
-Most "make it sound human" prompts are one line: *"rewrite this so it doesn't sound like AI."* That line does almost nothing, because it gives the model no definition of what to look for. This skill replaces the vague instruction with a concrete taxonomy: **26 named pattern categories**, a 70-term banned vocabulary list, and a 13-point self-check the model runs against its own output before returning it.
+Most "make it sound human" prompts are one line: *"rewrite this so it doesn't sound like AI."* That line does almost nothing, because it gives the model no definition of what to look for. This skill replaces the vague instruction with a concrete taxonomy: **28 named pattern categories**, a 70-term banned vocabulary list, a "preserve voice" test to guard against over-correction, and a 15-point self-check the model runs against its own output before returning it.
 
 ## The problem
 
@@ -23,7 +23,7 @@ The rewrite above removes: a negative-parallelism opener, a reframe construction
 
 ## How it works
 
-**26 named pattern categories**, each with concrete trigger phrases in both languages and a stated fix — not "avoid clichés" but "these specific constructions, replaced this specific way":
+**28 named pattern categories**, each with concrete trigger phrases in both languages and a stated fix — not "avoid clichés" but "these specific constructions, replaced this specific way":
 
 | # | Category | Example tell |
 |---|----------|--------------|
@@ -53,12 +53,16 @@ The rewrite above removes: a negative-parallelism opener, a reframe construction
 | 24 | Synonym cycling | "protagonist / main character / central figure / hero" in one paragraph |
 | 25 | Interpretive metadiscourse | "The key point is...", "As you can see..." |
 | 26 | Summary-recap endings | "In conclusion,", "Overall," restating what was just said |
+| 27 | Demonstrative kicker (mid-text) | "That instinct backfires." — recurring rhythm tic, not just an ending |
+| 28 | Hedged confidence | "One might argue...", "In many ways..." — the author's own non-committal hedge |
 
 **A 70-term banned vocabulary list** — delve, harness, tapestry, paradigm, leverage, seamless, robust, and the rest of the words that flag a paragraph as machine-written on sight.
 
-**A self-check loop, not a single pass.** Before returning output, the skill runs its own draft against 13 pass/fail checks (meaning preserved? every banned term gone? reframes eliminated? rhythm varied? register matched? false agency and distant-narrator voice gone? no faux-insight setups or summary-recap endings?) and revises until it passes — the same discipline a careful human editor applies, made explicit instead of implicit. The loop ends with a deliberately blunt self-audit question: *"what makes this obviously AI generated?"* — if anything still answers that, it gets fixed before the draft goes out.
+**A "preserve voice" test, to stop the skill from over-correcting.** The most common failure of an editing pass isn't leaving slop in, it's flattening a sentence the author would actually defend. Before cutting anything, the skill asks: is this slop (adds no meaning, follows a formula) or voice (a deliberate choice)? Earned fragments, deliberate parallelism, an earned closing line, first-person conviction the author owns — these get left alone. The editing itself is staged, not done inline: collect candidates first, validate each against this test, then apply only the surviving edits one at a time.
 
-**Two modes.** *Rewrite* (default) returns an annotated before/after. *Detect* audits text for the same 26 patterns without touching it — useful for reviewing writing you don't want rewritten, only diagnosed. Detect deliberately doesn't score "AI-ness" as a probability; named patterns are checkable evidence, and the skill treats that distinction as a feature, not a limitation.
+**A self-check loop, not a single pass.** Before returning output, the skill runs its own draft against 15 pass/fail checks (meaning preserved? every banned term gone? reframes eliminated? rhythm varied? register matched? false agency and distant-narrator voice gone? no faux-insight setups or summary-recap endings? no formulaic construction swapped for another? voice choices left untouched?) and revises until it passes — the same discipline a careful human editor applies, made explicit instead of implicit. The loop ends with a deliberately blunt self-audit question: *"what makes this obviously AI generated?"* — if anything still answers that, it gets fixed before the draft goes out.
+
+**Two modes.** *Rewrite* (default) returns an annotated before/after. *Detect* audits text for the same 28 patterns without touching it — useful for reviewing writing you don't want rewritten, only diagnosed. Detect deliberately doesn't score "AI-ness" as a probability; named patterns are checkable evidence, and the skill treats that distinction as a feature, not a limitation.
 
 ### Why these specific patterns
 

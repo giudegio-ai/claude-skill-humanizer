@@ -30,6 +30,22 @@ Trigger exclusively on the `/humanizer` command. The text to rewrite (or audit) 
 
 ---
 
+## Prime directive: preserve voice
+
+The most common failure of a humanizing pass is over-correction into flat, voiceless text — which is its own tell. Before cutting anything, decide: is it slop (adds no meaning, follows a formula) or voice (a deliberate choice the author would defend)?
+
+**The test:** could the author defend this choice if asked? If yes, keep it. Slop cannot be defended — it exists because a pattern put it there, not because a person chose it.
+
+**Keep, don't "fix":**
+- Earned fragments: a short punchy beat after a long sentence, used sparingly, for emphasis. "Non segnalato dopo. Rimosso." / "Not flagged after the fact. Removed."
+- Deliberate parallelism: "Puoi avere l'uno o l'altro. Non puoi avere entrambi." / "You can have either. You cannot have both."
+- A strong closing line that earns its place with a concrete image, not a vague aphorism: "Il perimetro è caduto dodici anni fa. La sessione è il prossimo." / "The perimeter fell twelve years ago. The session is next."
+- First-person conviction the author actually owns: "Penso che...", "Non siamo tranquilli nel dire..." / "We think...", "We are not comfortable saying..."
+
+When unsure, leave it. A false positive that flattens a good sentence is worse than a tell that survives the edit.
+
+---
+
 ## Banned vocabulary reference
 
 Before rewriting, load and apply the full banned vocabulary list from the WRITING RULES document passed by the user (section 4A). It contains 60+ specific terms to remove or replace, including: delve, realm, harness, unlock, tapestry, paradigm, cutting-edge, revolutionize, intricate, showcasing, crucial, pivotal, surpass, meticulously, vibrant, unparalleled, underscore, leverage, synergy, innovative, game-changer, testament, commendable, highlight, emphasize, boast, groundbreaking, align, foster, showcase, enhance, holistic, garner, pioneering, trailblazing, unleash, transformative, redefine, seamless, optimize, scalable, robust, breakthrough, empower, streamline, frictionless, elevate, adaptive, effortless, data-driven, insightful, proactive, mission-critical, visionary, disruptive, reimagine, unprecedented, intuitive, synergize, democratize, accelerate, state-of-the-art, dynamic, immersive, predictive, transparent, future-proof, supercharge, captivate, valuable, interplay, enduring.
@@ -358,6 +374,28 @@ Un "In conclusione", "In definitiva", "Nel complesso", o un paragrafo finale che
 
 ---
 
+### 27. Demonstrative kicker (mid-text)
+
+A vague "This/That + verdict" fragment tacked onto a sentence or paragraph, restating what the prior sentence already said. Different from #10 (fake-profound kicker), which is specifically the closing line of the whole piece — this one can recur anywhere in the text as a rhythm tic.
+
+- "That instinct backfires.", "This is where the risk hides.", "That is the whole point."
+- "Questo è l'istinto che si ritorce contro.", "È qui che si nasconde il rischio.", "Ecco tutto il punto."
+
+**The fix:** cut it, or fold the idea into the previous sentence. If a transition is needed, use a real pivot word ("Ma...", "But...") instead of a demonstrative-verdict fragment.
+
+---
+
+### 28. Hedged confidence (author's own hedge)
+
+Phrases where the author signals engagement with an idea while committing to nothing. Different from #11 (vague attribution to unnamed experts/studies): here the hedge is the author's own voice, not a borrowed authority.
+
+- "It's important to consider...", "One might argue...", "In many ways..."
+- "È importante considerare che...", "Si potrebbe sostenere che...", "In un certo senso..."
+
+**The fix:** take the position directly, or cut the sentence if it adds nothing.
+
+---
+
 ## Rewriting principles
 
 **Preserve**: core meaning, factual claims, the author's intended tone (formal/casual/technical), specific terminology that belongs to the domain.
@@ -370,6 +408,19 @@ Un "In conclusione", "In definitiva", "Nel complesso", o un paragrafo finale che
 - First-person where appropriate: "penso che", "ho visto", "nella mia esperienza" — make the authorship visible.
 - Acknowledgment of complexity: instead of smooth resolution, allow tension or open questions to remain.
 - Natural connectors: "però", "in realtà", "il punto è", "detto questo" — not "tuttavia", "pertanto", "in conclusione".
+
+---
+
+## Editing workflow
+
+Work in stages. Don't fix inline as you read — that's how the Prime directive gets skipped.
+
+1. Read the whole piece first and note the author's voice (punchy, formal, conversational). You are matching it, not overwriting it.
+2. Scan for patterns from the catalog above. Collect candidates. Do not edit yet.
+3. Validate each candidate against the Prime directive: slop or voice? Discard false positives.
+4. Apply the surviving edits one at a time, each a minimal phrasing change. Do not restructure paragraphs, reorder arguments, or change meaning.
+5. Re-read the edited passages for rhythm. Fix anything that now reads choppy or flat.
+6. Run the self-check below, then report.
 
 ---
 
@@ -390,6 +441,8 @@ Before returning a rewrite, check it against this list. Answer each with pass or
 11. Nessun soggetto inanimato compie azioni umane, nessuna voce da narratore a distanza, nessuna apertura con parola interrogativa, nessun assoluto vago senza dati dietro (§18-21)?
 12. Nessun setup da falso insight, coda in -ing superficiale, sinonimo a rotazione, metadiscorso interpretativo, o finale riassuntivo (§22-26)?
 13. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
+14. Did any edit replace one formulaic construction with another (a new kicker, a new hedge) instead of cutting it clean?
+15. Are the legitimate voice choices from the Prime directive (earned fragments, deliberate parallelism, earned closing lines, owned first-person conviction) still standing untouched?
 
 For Detect mode, check instead: does the response name each pattern with a quoted line and a short fix, without rewriting, scoring, or claiming to know whether AI wrote it?
 
@@ -398,7 +451,7 @@ For Detect mode, check instead: does the response name each pattern with a quote
 Produce the output in two clearly labeled sections:
 
 ### ✂️ Patterns removed
-A compact list of what was found and removed, with brief annotation. Group by category if there are many. Example:
+A compact list of what was found and removed, with brief annotation. Group by category if there are many. If you deliberately kept a borderline pattern as voice rather than removing it (per the Prime directive), note it too as "kept — voice, not slop" with a one-line reason. Example:
 
 - **Reframe negativo**: "Non si tratta di X, si tratta di Y" → riscritto come affermazione diretta
 - **Apertura iperbolica**: "Mi ha davvero aperto gli occhi su..." → rimossa
