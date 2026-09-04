@@ -2,7 +2,7 @@
 
 A Claude Code skill that finds and removes the tells of AI-generated writing, in Italian and English.
 
-Most "make it sound human" prompts are one line: *"rewrite this so it doesn't sound like AI."* That line does almost nothing, because it gives the model no definition of what to look for. This skill replaces the vague instruction with a concrete taxonomy: **26 named pattern categories**, a 70-term banned vocabulary list, and a 13-point self-check the model runs against its own output before returning it.
+Most "make it sound human" prompts are one line: *"rewrite this so it doesn't sound like AI."* That line does almost nothing, because it gives the model no definition of what to look for. This skill replaces the vague instruction with a concrete taxonomy: **26 named pattern categories**, a 70-term banned vocabulary list, an anti-fabrication guardrail, and a 14-point self-check the model runs against its own output before returning it.
 
 ## The problem
 
@@ -56,7 +56,9 @@ The rewrite above removes: a negative-parallelism opener, a reframe construction
 
 **A 70-term banned vocabulary list** — delve, harness, tapestry, paradigm, leverage, seamless, robust, and the rest of the words that flag a paragraph as machine-written on sight.
 
-**A self-check loop, not a single pass.** Before returning output, the skill runs its own draft against 13 pass/fail checks (meaning preserved? every banned term gone? reframes eliminated? rhythm varied? register matched? false agency and distant-narrator voice gone? no faux-insight setups or summary-recap endings?) and revises until it passes — the same discipline a careful human editor applies, made explicit instead of implicit. The loop ends with a deliberately blunt self-audit question: *"what makes this obviously AI generated?"* — if anything still answers that, it gets fixed before the draft goes out.
+**An anti-fabrication guardrail.** Making text more concrete is one of this skill's core moves — replace "è molto importante" with what's actually at stake. Left unchecked, that instruction alone can push a rewrite toward inventing a plausible-sounding number, date, or anecdote just to kill vagueness. The skill blocks that explicitly: specificity has to come from the source material, never from thin air. If the original is vague and there's no real detail to recover, the rewrite either stays vague or flags the gap ("[dato mancante: quale numero?]") instead of filling it with something invented. Fabricated specificity is worse than honest vagueness — it reads as good writing while being a lie.
+
+**A self-check loop, not a single pass.** Before returning output, the skill runs its own draft against 14 pass/fail checks (meaning preserved? nothing fabricated? every banned term gone? reframes eliminated? rhythm varied? register matched? false agency and distant-narrator voice gone? no faux-insight setups or summary-recap endings?) and revises until it passes — the same discipline a careful human editor applies, made explicit instead of implicit. The loop ends with a deliberately blunt self-audit question: *"what makes this obviously AI generated?"* — if anything still answers that, it gets fixed before the draft goes out.
 
 **Two modes.** *Rewrite* (default) returns an annotated before/after. *Detect* audits text for the same 26 patterns without touching it — useful for reviewing writing you don't want rewritten, only diagnosed. Detect deliberately doesn't score "AI-ness" as a probability; named patterns are checkable evidence, and the skill treats that distinction as a feature, not a limitation.
 
