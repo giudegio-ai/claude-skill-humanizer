@@ -366,10 +366,12 @@ Un "In conclusione", "In definitiva", "Nel complesso", o un paragrafo finale che
 - Varied sentence rhythm: mix short punchy sentences with longer ones. Break the pattern.
 - Voce attiva: individua "is/are/was/were + participio passato" e nomina chi compie l'azione. "le query vengono validate" → "il compilatore valida le query". La passiva va bene solo se l'attore è ignoto o davvero irrilevante.
 - Direct statements: say what happened or what you think, without building up to it.
-- Concrete details over abstract claims: replace "è molto importante" with what exactly is at stake.
+- Concrete details over abstract claims: replace "è molto importante" with what exactly is at stake — ma solo usando dettagli già presenti nel testo originale. Se il testo di partenza è vago e non contiene un dato reale da recuperare, vedi "Mai inventare" sotto: non riempire il vuoto con un numero o un esempio plausibile.
 - First-person where appropriate: "penso che", "ho visto", "nella mia esperienza" — make the authorship visible.
 - Acknowledgment of complexity: instead of smooth resolution, allow tension or open questions to remain.
 - Natural connectors: "però", "in realtà", "il punto è", "detto questo" — not "tuttavia", "pertanto", "in conclusione".
+
+**Mai inventare**: non introdurre numeri, statistiche, date, nomi, citazioni o aneddoti che non sono nel testo originale, anche per sostituire una frase vaga con qualcosa che suoni concreto. Rendere il testo più specifico è un obiettivo di questa skill (vedi sopra), ma la specificità deve venire dal materiale di partenza, mai inventata per suonare più umana o più credibile. Se il testo è vago e nel materiale non c'è un dato reale da usare, due opzioni: lascialo vago, oppure segnalalo esplicitamente nell'output invece di colmarlo con un'invenzione plausibile ("[dato mancante: quanti utenti? quale numero?]"). Una specificità inventata è peggio di una vaghezza onesta: supera il self-check a occhio perché *sembra* buona scrittura, ma è una bugia.
 
 ---
 
@@ -378,18 +380,19 @@ Un "In conclusione", "In definitiva", "Nel complesso", o un paragrafo finale che
 Before returning a rewrite, check it against this list. Answer each with pass or fail; if anything fails, fix the draft and check again before producing the final output.
 
 1. Does the rewrite preserve the original meaning, claims, and tone without inventing details?
-2. Is every banned word or phrase from the vocabulary reference and pattern list gone, unless quoted as an example of what was removed?
-3. Are negative parallelism, reframe constructions, and serial negation eliminated — no "not X, it's Y"?
-4. Are decorative metaphors and corporate/LinkedIn voice replaced with literal claims?
-5. Are colon reveals rewritten as plain sentences and fake-profound kickers deleted rather than rewritten into a new metaphor?
-6. Is sentence rhythm varied — no robotic three-item lists, no identical paragraph lengths, no stacked punchy fragments?
-7. Are em dashes absent per the rule in Structural tics, with no parentheses used as a substitute?
-8. Does the register match the source (formal stays formal, casual stays casual) without over-professionalizing?
-9. Would a sharp human reader recognize this as natural writing, not a cleaned-up AI draft?
-10. Le frasi vaghe/sensazione sono state sostituite con meccanismo o numero concreto (vedi §17)?
-11. Nessun soggetto inanimato compie azioni umane, nessuna voce da narratore a distanza, nessuna apertura con parola interrogativa, nessun assoluto vago senza dati dietro (§18-21)?
-12. Nessun setup da falso insight, coda in -ing superficiale, sinonimo a rotazione, metadiscorso interpretativo, o finale riassuntivo (§22-26)?
-13. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
+2. Sono stati aggiunti numeri, statistiche, date, nomi, citazioni o aneddoti assenti dal testo originale? → Rimuovili, riporta la formulazione originale, o segnala esplicitamente il dato mancante. Non riempire un vuoto con un'invenzione plausibile, anche se rende la frase più concreta.
+3. Is every banned word or phrase from the vocabulary reference and pattern list gone, unless quoted as an example of what was removed?
+4. Are negative parallelism, reframe constructions, and serial negation eliminated — no "not X, it's Y"?
+5. Are decorative metaphors and corporate/LinkedIn voice replaced with literal claims?
+6. Are colon reveals rewritten as plain sentences and fake-profound kickers deleted rather than rewritten into a new metaphor?
+7. Is sentence rhythm varied — no robotic three-item lists, no identical paragraph lengths, no stacked punchy fragments?
+8. Are em dashes absent per the rule in Structural tics, with no parentheses used as a substitute?
+9. Does the register match the source (formal stays formal, casual stays casual) without over-professionalizing?
+10. Would a sharp human reader recognize this as natural writing, not a cleaned-up AI draft?
+11. Le frasi vaghe/sensazione sono state sostituite con meccanismo o numero concreto (vedi §17), e quel meccanismo o numero viene dal testo originale, non inventato?
+12. Nessun soggetto inanimato compie azioni umane, nessuna voce da narratore a distanza, nessuna apertura con parola interrogativa, nessun assoluto vago senza dati dietro (§18-21)?
+13. Nessun setup da falso insight, coda in -ing superficiale, sinonimo a rotazione, metadiscorso interpretativo, o finale riassuntivo (§22-26)?
+14. Domanda finale: "cosa rende questo testo palesemente generato da AI?" — se emerge ancora qualcosa, correggi prima di consegnare.
 
 For Detect mode, check instead: does the response name each pattern with a quoted line and a short fix, without rewriting, scoring, or claiming to know whether AI wrote it?
 
